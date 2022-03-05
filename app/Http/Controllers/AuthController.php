@@ -22,6 +22,8 @@ class AuthController extends Controller
             'email' => 'required|string|unique:users|email:rfc',
             'password' => 'required|string|min:5',
         ]);
+
+        $this->authService->registerUser($request);
     }
 
     public function showRegisterForm(): Factory|View|Application

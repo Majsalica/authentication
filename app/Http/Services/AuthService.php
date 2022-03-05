@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use App\Http\Repositories\AuthRepository;
+use Illuminate\Http\Request;
 
 class AuthService
 {
@@ -11,7 +12,7 @@ class AuthService
     ) {
     }
 
-    public function registerUser()
+    public function registerUser(Request $request)
     {
 
     }
