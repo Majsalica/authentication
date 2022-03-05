@@ -11,4 +11,9 @@ class AuthService
     ) {
     }
 
+    public function registerUser()
+    {
+
+    }
+
 }

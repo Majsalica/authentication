@@ -11,4 +11,9 @@ class AuthController extends Controller
         private AuthService $authService,
     ) {
     }
+
+    public function register()
+    {
+
+    }
 }
