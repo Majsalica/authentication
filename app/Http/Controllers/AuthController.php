@@ -6,6 +6,7 @@ use App\Http\Services\AuthService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -15,7 +16,7 @@ class AuthController extends Controller
     ) {
     }
 
-    public function register(Request $request)
+    public function register(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required|string|min:5',
@@ -23,7 +24,7 @@ class AuthController extends Controller
             'password' => 'required|string|min:5',
         ]);
 
-        $this->authService->registerUser($request);
+        return $this->authService->registerUser($request);
     }
 
     public function showRegisterForm(): Factory|View|Application
