@@ -3,7 +3,10 @@
 namespace App\Http\Services;
 
 use App\Http\Repositories\AuthRepository;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthService
 {
@@ -12,9 +15,11 @@ class AuthService
     ) {
     }
 
-    public function registerUser(Request $request)
+    public function registerUser(Request $request): RedirectResponse
     {
-
+        /** @var User $user */
+        $user = $this->authRepository->createUser($request->all());
+        Auth::login($user);
+        return redirect()->route('dashboard');
     }
-
 }
