@@ -14,6 +14,7 @@
   <div class="container">
       <div class="col-6 offset-3">
           <form class="mt-5" method="post">
+              @csrf
               @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
