@@ -14,6 +14,15 @@
   <div class="container">
       <div class="col-6 offset-3">
           <form class="mt-5" method="post">
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
               <h3>Registration form</h3>
               <hr/>
               <div class="mb-3">
