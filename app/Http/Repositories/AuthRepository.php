@@ -17,4 +17,9 @@ class AuthRepository
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function getUserByEmail(string $email): Builder|null
+    {
+        return User::query()->where('email', '=', $email)->first();
+    }
 }
