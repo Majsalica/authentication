@@ -18,7 +18,7 @@ class AuthRepository
         ]);
     }
 
-    public function getUserByEmail(string $email): Builder|null
+    public function getUserByEmail(string $email): Model|null
     {
         return User::query()->where('email', '=', $email)->first();
     }
