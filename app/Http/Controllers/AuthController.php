@@ -31,4 +31,15 @@ class AuthController extends Controller
     {
         return view('Auth.registration');
     }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email:rfc',
+            'password' => 'required|string'
+        ]);
+
+        return $this->authService->loginUser($request);
+
+    }
 }
