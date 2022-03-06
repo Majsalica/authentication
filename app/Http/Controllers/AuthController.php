@@ -32,7 +32,7 @@ class AuthController extends Controller
         return view('Auth.registration');
     }
 
-    public function login(Request $request)
+    public function login(Request $request): RedirectResponse
     {
         $request->validate([
             'email' => 'required|string|email:rfc',
