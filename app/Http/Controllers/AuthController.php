@@ -40,6 +40,10 @@ class AuthController extends Controller
         ]);
 
         return $this->authService->loginUser($request);
+    }
 
+    public function showLoginForm(): Factory|View|Application
+    {
+        return view('Auth.login');
     }
 }
